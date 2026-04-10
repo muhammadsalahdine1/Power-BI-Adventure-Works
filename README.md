@@ -41,3 +41,75 @@
 <img src="https://github.com/muhammadsalahdine1/Power-BI-Adventure-Works/blob/main/7.PNG" width="300">
 <\div> 
 
+### Using variables
+- Since they started trading, Adventure Works has never increased prices even when inflation has risen.
+- The leadership team would like to understand what total sales would look like had they taken into consideration inflation when they first started trading.
+- Create a new measure called "TotalSales_w_increase".
+- For the measure, define a variable called "Increase" and set it to 5% (0.05).
+- In the return statement of the variable, calculate the total sales, and add the 5% increase of the total sales, like this: 'Calculations'[TotalSales] + ('Calculations'[____] * increase)
+- In the Report view, create two Card visuals that show TotalSales and TotalSales_w_increase.
+- What is the new total sales with the 5% increase applied?
+<div>
+<img src="https://github.com/muhammadsalahdine1/Power-BI-Adventure-Works/blob/main/8.PNG" width="500">
+<img src="https://github.com/muhammadsalahdine1/Power-BI-Adventure-Works/blob/main/9.PNG" width="500">
+<\div>  
+
+
+### Iterator functions
+- Iterator functions are very useful for running calculations without the need to create calculated columns. 
+- I will be comparing the output of a AVERAGE() vs. AVERAGEX().
+- Create a new measure AvgProfit which calculates the average of all the profit.
+- Create a new measure called AvgProfit_x that uses the AVERAGEX() function to subtract line cost from line price.
+- Create a Clustered column chart that shows AvgProfit and AvgProfit_x.
+<div>
+<img src="https://github.com/muhammadsalahdine1/Power-BI-Adventure-Works/blob/main/10.PNG" width="300">
+<img src="https://github.com/muhammadsalahdine1/Power-BI-Adventure-Works/blob/main/11.PNG" width="300">
+<img src="https://github.com/muhammadsalahdine1/Power-BI-Adventure-Works/blob/main/12.PNG" width="300">
+<\div>  
+
+
+### Sales by category and year
+- In previous, I've calculated revenue by using a SUM() function to total the LinePrice column.
+- Now I'll need to calculate the total sales and filter by category Bikes and order year 2018.
+- I will be utilizing the CALCULATE() function.
+- Create a measure called 2018 Bikes Revenue which calculates the sum of line price and filters on the product category "Bikes" and YEAR(Sales[OrderDate]) year being 2018.
+- Create a Card visual that shows your new measure 2018 Bikes Revenue.
+<img src="https://github.com/muhammadsalahdine1/Power-BI-Adventure-Works/blob/main/13.PNG" width="1000">
+
+
+### Expanding the Date table
+- A Date table has already been created using the CALENDAR() function that takes in two arguments.
+- For our Date table, we have generated dates from the first order date to the latest order date.
+- Some columns have already been created, but we are going to expand on this by creating new columns using date and text functions to work out which day of the week a particular day is.
+- Create a new column in the Dates table called DayNo that uses the DAY() function to calculate the day number in the month.
+- Use Dates[Date] for this new column.
+- Create a new column in Dates called DayShortName that uses FORMAT() with Dates[Date] to return the 3 letter short name for days ("ddd").
+- In the Report view, create a Table that shows Date (without hierarchy) and DayShortName.
+<div>
+<img src="https://github.com/muhammadsalahdine1/Power-BI-Adventure-Works/blob/main/14.PNG" width="300">
+<img src="https://github.com/muhammadsalahdine1/Power-BI-Adventure-Works/blob/main/15.PNG" width="300">
+<img src="https://github.com/muhammadsalahdine1/Power-BI-Adventure-Works/blob/main/16.PNG" width="300">
+<\div>
+
+
+### DATEDIFF
+- Adventure Works would like to understand the timeline from customers making an order to the delivery being due. 
+- We'll be utilizing the DATEDIFF() function to calculate the difference.
+- Create a new column in the Sales table called Order2Delivery that calculates the number of days between Order Date and Delivery Due Date.
+- Create a Card visual that shows the average of Order2Delivery.
+<div>
+<img src="https://github.com/muhammadsalahdine1/Power-BI-Adventure-Works/blob/main/17.PNG" width="500">
+<img src="https://github.com/muhammadsalahdine1/Power-BI-Adventure-Works/blob/main/18.PNG" width="500">
+<\div>
+
+
+###  Quick measure
+- Create a new quick measure that calculates quarter-over-quarter change for TotalSales over one period.
+- Select Quick Measure from the Home Ribbon which will return a number of calculations to choose from. Navigate to Time Intelligence and select Quarter-over-quarter change.
+- The base value should contain the TotalSales measure and Date should be Date from the Dates table.
+- Create a Line chart and clustered column chart to show the Total Sales QoQ% and TotalSales by Year and Quarter using the Date Hierarchy in Dates table.
+- What was the `Total Sales QoQ%` for Q4 in 2018?
+<div>
+<img src="https://github.com/muhammadsalahdine1/Power-BI-Adventure-Works/blob/main/19.PNG" width="500">
+<img src="https://github.com/muhammadsalahdine1/Power-BI-Adventure-Works/blob/main/20.PNG" width="500">
+<\div> 
